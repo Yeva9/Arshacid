@@ -3,7 +3,7 @@ export CC := g++
 export SRCS := $(wildcard src/*.cpp)
 export OBJS := $(patsubst src/%.cpp, obj/%.o, $(SRCS))
 
-export LIBS	:= ./lib/ByArshacid.so 
+export LIBS	:= ./lib/ByArshakid.so 
 
 $(LIBS) : $(OBJS) 
 	@mkdir -p lib
