@@ -1,4 +1,3 @@
-export EXE := benchmark
 export CC := g++
 
 export SRCS := $(wildcard src/*.cpp)
@@ -6,7 +5,7 @@ export OBJS := $(patsubst src/%.cpp, obj/%.o, $(SRCS))
 
 export LIBS	:= ./lib/ByArshacid.so 
 
-$(LIBS) : $(OBJS) #obj/Sortings.o
+$(LIBS) : $(OBJS) 
 	@mkdir -p lib
 	$(CC) -shared $^ -o $@
 
