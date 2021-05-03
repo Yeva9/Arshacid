@@ -1,13 +1,13 @@
 #include <cassert>
 #include <iostream>
 
-void BubbleSortByArshacid(int, int*);
-void SelectionSortByArshacid(int, int*);
-void InsertionSortByArshacid(int, int*);
-void HeapSortByArshacid(int, int*);
-void ShellSortByArshacid(int, int*);
-void QuickSortByArshacid(int, int*);
-void MergeSortByArshacid(int, int*);
+void BubbleSortByArshakid(int, int*);
+void SelectionSortByArshakid(int, int*);
+void InsertionSortByArshakid(int, int*);
+void HeapSortByArshakid(int, int*);
+void ShellSortByArshakid(int, int*);
+void QuickSortByArshakid(int, int*);
+void MergeSortByArshakid(int, int*);
 
 
 namespace 
@@ -19,7 +19,7 @@ namespace
 	}	
 }
 
-void BubbleSortByArshacid(int size, int* array) {
+void BubbleSortByArshakid(int size, int* array) {
 	bool is_sorted = true;
 
 	for (int i = 0; i < size - 1; ++i) {
@@ -36,7 +36,7 @@ void BubbleSortByArshacid(int size, int* array) {
 	}
 }
 
-void SelectionSortByArshacid(int size, int* array) {
+void SelectionSortByArshakid(int size, int* array) {
 	for (int i = 0; i < size - 1; ++i) {
 		int min_index = i;
 		for (int j = i + 1; j < size; ++j) {
@@ -53,7 +53,7 @@ void SelectionSortByArshacid(int size, int* array) {
     }
 }
 
-void InsertionSortByArshacid(int size, int* array) {
+void InsertionSortByArshakid(int size, int* array) {
 	for (int i = 1; i < size; ++i) {
 		int tmp = array[i], j = i - 1;
 
@@ -96,7 +96,7 @@ namespace
     }
 }
 
-void QuickSortByArshacid(int size, int* array) {   
+void QuickSortByArshakid(int size, int* array) {   
     QuickSortHelper(array, 0, size - 1);
 }
 
@@ -138,7 +138,7 @@ namespace
     }
 }
 
-void MergeSortByArshacid(int size, int* array) {
+void MergeSortByArshakid(int size, int* array) {
     MergeSortHelper(array, 0, size - 1);
 }
 
@@ -164,7 +164,7 @@ namespace
 	}
 }
 
-void HeapSortByArshacid(int size, int* array) {
+void HeapSortByArshakid(int size, int* array) {
     for (int i = (size / 2) - 1; i >= 0; --i) {
         Heapify(array, size, i);        
     }
@@ -175,7 +175,7 @@ void HeapSortByArshacid(int size, int* array) {
     }
 }
 
-void ShellSortByArshacid(int size, int* array) {
+void ShellSortByArshakid(int size, int* array) {
 	for (int gap = size / 2; gap > 0; gap /= 2) {
 		for (int i = gap; i < size; ++i ) {
 			for (int j = i - gap; j >= 0; j -= gap) {
