@@ -1,6 +1,14 @@
 #include <cassert>
 #include <iostream>
-#include "Sortings.hpp"
+
+void BubbleSortByArshacid(int, int*);
+void SelectionSortByArshacid(int, int*);
+void InsertionSortByArshacid(int, int*);
+void HeapSortByArshacid(int, int*);
+void ShellSortByArshacid(int, int*);
+void QuickSortByArshacid(int, int*);
+void MergeSortByArshacid(int, int*);
+
 
 namespace 
 {	
@@ -11,7 +19,7 @@ namespace
 	}	
 }
 
-void Arshacid::BubbleSort(int size, int* array) {
+void BubbleSortByArshacid(int size, int* array) {
 	bool is_sorted = true;
 
 	for (int i = 0; i < size - 1; ++i) {
@@ -28,7 +36,7 @@ void Arshacid::BubbleSort(int size, int* array) {
 	}
 }
 
-void Arshacid::SelectionSort(int size, int* array) {
+void SelectionSortByArshacid(int size, int* array) {
 	for (int i = 0; i < size - 1; ++i) {
 		int min_index = i;
 		for (int j = i + 1; j < size; ++j) {
@@ -45,7 +53,7 @@ void Arshacid::SelectionSort(int size, int* array) {
     }
 }
 
-void Arshacid::InsertionSort(int size, int* array) {
+void InsertionSortByArshacid(int size, int* array) {
 	for (int i = 1; i < size; ++i) {
 		int tmp = array[i], j = i - 1;
 
@@ -88,7 +96,7 @@ namespace
     }
 }
 
-void Arshacid::QuickSort(int size, int* array) {   
+void QuickSortByArshacid(int size, int* array) {   
     QuickSortHelper(array, 0, size - 1);
 }
 
@@ -130,7 +138,7 @@ namespace
     }
 }
 
-void Arshacid::MergeSort(int size, int* array) {
+void MergeSortByArshacid(int size, int* array) {
     MergeSortHelper(array, 0, size - 1);
 }
 
@@ -156,7 +164,7 @@ namespace
 	}
 }
 
-void Arshacid::HeapSort(int size, int* array) {
+void HeapSortByArshacid(int size, int* array) {
     for (int i = (size / 2) - 1; i >= 0; --i) {
         Heapify(array, size, i);        
     }
@@ -167,7 +175,7 @@ void Arshacid::HeapSort(int size, int* array) {
     }
 }
 
-void Arshacid::ShellSort(int size, int* array) {
+void ShellSortByArshacid(int size, int* array) {
 	for (int gap = size / 2; gap > 0; gap /= 2) {
 		for (int i = gap; i < size; ++i ) {
 			for (int j = i - gap; j >= 0; j -= gap) {
