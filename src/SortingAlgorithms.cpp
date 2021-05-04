@@ -10,14 +10,11 @@ void QuickSortByArshakid(int, int*);
 void MergeSortByArshakid(int, int*);
 
 
-namespace 
-{	
 	void Swap(int& a, int& b) {
 		int tmp = a;
 		a = b;
 		b = tmp;
 	}	
-}
 
 void BubbleSortByArshakid(int size, int* array) {
 	bool is_sorted = true;
@@ -66,8 +63,6 @@ void InsertionSortByArshakid(int size, int* array) {
 	}
 }
 
-namespace 
-{
 	int Partitioning(int* array, int start, int end) {
 		int pivot = end; 	 
 		int pindex = start;  // index for partitioning
@@ -94,14 +89,11 @@ namespace
     	QuickSortHelper(array, start, pivot - 1);
 	    QuickSortHelper(array, pivot + 1, end);
     }
-}
 
 void QuickSortByArshakid(int size, int* array) {   
     QuickSortHelper(array, 0, size - 1);
 }
 
-namespace
-{	
 	void Merge(int* array, int start, int middle, int end) {
 		int i = start; 			 // initial index of first subarray
 		int j = middle + 1;		 // initial index of second subarray
@@ -136,14 +128,11 @@ namespace
 	    MergeSortHelper(array, middle + 1, end);
 	    Merge(array, start, middle, end);
     }
-}
 
 void MergeSortByArshakid(int size, int* array) {
     MergeSortHelper(array, 0, size - 1);
 }
 
-namespace 
-{
 	void Heapify(int* array, int size, int root) {
     	int max = root;
     	int right = (2 * root) + 1;
@@ -162,7 +151,6 @@ namespace
     	    Heapify(array, size, max);              
     	}
 	}
-}
 
 void HeapSortByArshakid(int size, int* array) {
     for (int i = (size / 2) - 1; i >= 0; --i) {
