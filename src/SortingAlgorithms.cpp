@@ -9,12 +9,11 @@ void ShellSortByArshakid(int, int*);
 void QuickSortByArshakid(int, int*);
 void MergeSortByArshakid(int, int*);
 
-
-	void Swap(int& a, int& b) {
-		int tmp = a;
-		a = b;
-		b = tmp;
-	}	
+void Swap(int& a, int& b) {
+	int tmp = a;
+	a = b;
+	b = tmp;
+}	
 
 void BubbleSortByArshakid(int size, int* array) {
 	bool is_sorted = true;
@@ -41,7 +40,6 @@ void SelectionSortByArshakid(int size, int* array) {
 				min_index = j;
 			}
 		}
-
 		//if it is not the same element
         if (i != min_index) {
             // Swap the found min element with the first element
@@ -63,94 +61,94 @@ void InsertionSortByArshakid(int size, int* array) {
 	}
 }
 
-	int Partitioning(int* array, int start, int end) {
-		int pivot = end; 	 
-		int pindex = start;  // index for partitioning
+int Partitioning(int* array, int start, int end) {
+	int pivot = end; 	 
+	int pindex = start;  // index for partitioning
 
-		for (int i = start; i < end; ++i) {
-			if (array[i] < array[pivot]) {
-				Swap(array[pindex], array[i]);
-				++pindex;
-			}
+	for (int i = start; i < end; ++i) {
+		if (array[i] < array[pivot]) {
+			Swap(array[pindex], array[i]);
+			++pindex;
 		}
-
-		Swap(array[pindex],array[pivot]);
-
-		return pindex;
 	}
 
-    void QuickSortHelper(int* array, int start, int end) {
-    	if (start >= end) {
-	    	return;
-	    }
+	Swap(array[pindex],array[pivot]);
 
-	    int pivot = Partitioning(array, start, end); 
+	return pindex;
+}
 
-    	QuickSortHelper(array, start, pivot - 1);
-	    QuickSortHelper(array, pivot + 1, end);
+void QuickSortHelper(int* array, int start, int end) {
+   	if (start >= end) {
+    	return;
     }
+
+    int pivot = Partitioning(array, start, end); 
+
+   	QuickSortHelper(array, start, pivot - 1);
+    QuickSortHelper(array, pivot + 1, end);
+}
 
 void QuickSortByArshakid(int size, int* array) {   
     QuickSortHelper(array, 0, size - 1);
 }
 
-	void Merge(int* array, int start, int middle, int end) {
-		int i = start; 			 // initial index of first subarray
-		int j = middle + 1;		 // initial index of second subarray
-		int l = end - start + 1; // size of temp array
+void Merge(int* array, int start, int middle, int end) {
+	int i = start; 			 // initial index of first subarray
+	int j = middle + 1;		 // initial index of second subarray
+	int l = end - start + 1; // size of temp array
 
-		int* tmp = new int[l];
+	int* tmp = new int[l];
 
-		for (int k = 0; k < l; ++k) {
-			if ((i <= middle && array[i] < array[j]) || j > end) {
-				tmp[k] = array[i];
-				++i;
-			} else {
-				tmp[k] = array[j];
-				++j;
-			}
+	for (int k = 0; k < l; ++k) {
+		if ((i <= middle && array[i] < array[j]) || j > end) {
+			tmp[k] = array[i];
+			++i;
+		} else {
+			tmp[k] = array[j];
+			++j;
 		}
+	}
 
-		for (int k = 0, p = start; k < l; ++k, ++p) {
-			array[p] = tmp[k];
-		}
-		delete[] tmp;
-    }
+	for (int k = 0, p = start; k < l; ++k, ++p) {
+		array[p] = tmp[k];
+	}
+	delete[] tmp;
+}
     
-    void MergeSortHelper(int* array, int start, int end) {
-	    if (start >= end) {
-		    return;
-	    }
-
-	    int middle = (start + end) / 2;
-
-	    MergeSortHelper(array, start, middle);
-	    MergeSortHelper(array, middle + 1, end);
-	    Merge(array, start, middle, end);
+void MergeSortHelper(int* array, int start, int end) {
+    if (start >= end) {
+	    return;
     }
+
+    int middle = (start + end) / 2;
+
+    MergeSortHelper(array, start, middle);
+	MergeSortHelper(array, middle + 1, end);
+	Merge(array, start, middle, end);
+}
 
 void MergeSortByArshakid(int size, int* array) {
     MergeSortHelper(array, 0, size - 1);
 }
 
-	void Heapify(int* array, int size, int root) {
-    	int max = root;
-    	int right = (2 * root) + 1;
-    	int left = (2 * root) + 2;
+void Heapify(int* array, int size, int root) {
+   	int max = root;
+   	int right = (2 * root) + 1;
+   	int left = (2 * root) + 2;
 
-    	if (left < size && array[left] > array[max]) {
-    	    max = left;
-    	}
+   	if (left < size && array[left] > array[max]) {
+   	    max = left;
+   	}
     
-    	if (right < size && array[right] > array[max]) {
-    	    max = right;
-    	}
+   	if (right < size && array[right] > array[max]) {
+   	    max = right;
+   	}
 
-    	if (max != root) {
-    	    Swap(array[root], array[max]);
-    	    Heapify(array, size, max);              
-    	}
-	}
+   	if (max != root) {
+   	    Swap(array[root], array[max]);
+   	    Heapify(array, size, max);              
+   	}
+}
 
 void HeapSortByArshakid(int size, int* array) {
     for (int i = (size / 2) - 1; i >= 0; --i) {
@@ -176,5 +174,3 @@ void ShellSortByArshakid(int size, int* array) {
 		}	
 	}
 }
-
-
